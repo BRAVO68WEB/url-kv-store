@@ -6,6 +6,7 @@ on:
     paths:
       - "packages/url-store-kv-worker/**"
       - ".github/workflows/deploy-worker.yml"
+  workflow_dispatch:
 
 jobs:
   deploy:
