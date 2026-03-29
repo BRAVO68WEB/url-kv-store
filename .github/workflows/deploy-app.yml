@@ -1,0 +1,43 @@
+name: Deploy App (Cloudflare Pages)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "packages/url-store-kv-app/**"
+      - ".github/workflows/deploy-app.yml"
+
+jobs:
+  deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build:app
+        env:
+          VITE_API_HOST: ${{ vars.VITE_API_HOST }}
+          VITE_HOST_URI: ${{ vars.VITE_HOST_URI }}
+          VITE_HOST_REDIRECT_URI: ${{ vars.VITE_HOST_REDIRECT_URI }}
+          VITE_LOGTO_ENDPOINT: ${{ vars.VITE_LOGTO_ENDPOINT }}
+          VITE_LOGTO_APPID: ${{ vars.VITE_LOGTO_APPID }}
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy packages/url-store-kv-app/dist --project-name=url-store-kv-app

@@ -1,0 +1,29 @@
+{
+  "name": "url-store-kv-worker",
+  "version": "2.0.0",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260317.1",
+    "better-sqlite3": "^12.8.0",
+    "typescript": "^5.6.0",
+    "wrangler": "4.78.0"
+  },
+  "private": true,
+  "author": {
+    "name": "Bravo68web",
+    "email": "bravo68web@gmail.com",
+    "url": "https://itsmebravo.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BRAVO68WEB/url-kv-store",
+    "directory": "packages/url-store-kv-worker"
+  },
+  "scripts": {
+    "dev": "wrangler dev --remote",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "hono": "^4.3.4",
+    "jose": "^6.2.2"
+  }
+}

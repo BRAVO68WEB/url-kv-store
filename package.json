@@ -1,0 +1,29 @@
+{
+  "name": "url-kv-store",
+  "version": "1.0.0",
+  "private": true,
+  "description": "URL shortener with Cloudflare Workers + KV/D1 backend and React frontend",
+  "scripts": {
+    "dev:app": "pnpm --filter url-store-kv-app dev",
+    "dev:worker": "pnpm --filter url-store-kv-worker dev",
+    "build:app": "pnpm --filter url-store-kv-app build",
+    "deploy:app": "pnpm --filter url-store-kv-app deploy",
+    "deploy:worker": "pnpm --filter url-store-kv-worker deploy",
+    "deploy": "pnpm deploy:worker && pnpm deploy:app",
+    "typecheck": "pnpm --filter url-store-kv-worker exec tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BRAVO68WEB/url-kv-store"
+  },
+  "author": {
+    "name": "Bravo68web",
+    "email": "bravo68web@gmail.com",
+    "url": "https://itsmebravo.dev"
+  },
+  "license": "ISC",
+  "packageManager": "pnpm@10.30.1",
+  "devDependencies": {
+    "typescript": "^6.0.2"
+  }
+}
