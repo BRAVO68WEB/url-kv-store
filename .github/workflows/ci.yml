@@ -22,8 +22,5 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - name: Lint (app)
-        run: pnpm lint
-
-      - name: Type check (worker)
-        run: pnpm typecheck
+      - name: Build check
+        run: pnpm build
