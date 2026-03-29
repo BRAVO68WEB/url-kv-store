@@ -18,5 +18,6 @@ database_id = "436ac8c0-3f46-45da-9c74-ba640ac91c75"
 preview_database_id = "436ac8c0-3f46-45da-9c74-ba640ac91c75"
 
 [observability]
-logs.enabled = true
-logs.invocation_logs = true
+[observability.logs]
+enabled = true
+invocation_logs = true
