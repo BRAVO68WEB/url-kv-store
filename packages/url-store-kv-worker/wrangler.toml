@@ -3,13 +3,13 @@ main = "src/index.ts"
 compatibility_date = "2022-10-31"
 workers_dev = true
 
-[vars]
-# Logto JWKS endpoint to verify frontend generic JWTs (e.g. https://[tenant].logto.app/oidc/jwks)
-LOGTO_JWKS_URL = "https://auth.b68.dev/oidc/jwks"
-
 kv_namespaces = [
   { binding = "URLSTORE", preview_id = "4209bb022c21498d99a0489a241f5f0d", id = "4209bb022c21498d99a0489a241f5f0d" }
 ]
+
+[vars]
+# Logto JWKS endpoint to verify frontend generic JWTs (e.g. https://[tenant].logto.app/oidc/jwks)
+LOGTO_JWKS_URL = "https://auth.b68.dev/oidc/jwks"
 
 [[ d1_databases ]]
 binding = "URLSTOREDB" # i.e. available in your Worker on env.DB
